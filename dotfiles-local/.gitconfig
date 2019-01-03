@@ -1,0 +1,49 @@
+[alias]
+  aa = add --all
+  ap = add --patch
+  ca = commit --amend -v
+  ci = commit -v
+  chp = cherry-pick
+  co = checkout
+  st = status
+  autosquash = rebase -i master --autosquash
+  fixup = commit --fixup
+  amend = commit --amend
+  as = rebase -i master --autosquash
+  fu = commit --fixup
+  wip = !git add --all && git commit -m 'WIP'
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  stage = "!git push -f origin $(git branch-name):staging"
+  update = !git fetch && git rebase origin/master
+[apply]
+  whitespace = fix
+[branch]
+  autosetuprebase = always
+  autosetupmerge = true
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+[color "branch"]
+  current = green reverse
+[core]
+  excludesfile = /Users/Ben/.gitignore_global
+  whitespace = trailing-space,space-before-tab
+  autocrlf = false
+[user]
+  name = Ben Swennen
+  email = b_swennen@hotmail.com
+[push]
+  default = current
+[merge]
+  conflictstyle = diff3
+[init]
+  templatedir = ~/.git_template
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
